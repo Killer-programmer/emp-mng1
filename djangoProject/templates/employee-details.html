@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+{% include 'navbar.html' %}
+<h1 align="center"> Employee Details </h1>
+<a href="{% url 'emppdf' %}" class="btn btn-success btn-lg">Download Employee Details</a>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Category</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Edit Employee Details</th>
+      <th scope="col">Delete Employee</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for employee in empdtl %}
+    <tr>
+      <th scope="row">{{ employee.id }}</th>
+      <td>{{ employee.emp_name }}</td>
+      <td>{{ employee.emp_num }}</td>
+      <td>{{ employee.emp_category }}</td>
+      <td>{{ employee.emp_rate }}</td>
+      <td><a href="{% url 'empedit' employee.id %}">Edit</a></td>
+      <td><a href="{% url 'empdlt' employee.id %}">Delete</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

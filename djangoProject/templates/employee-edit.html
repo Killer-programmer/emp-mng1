@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<p>Employee details will be edited from here</p>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>
